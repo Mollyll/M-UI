@@ -1,8 +1,11 @@
 const path = require('path') // 根路径
+const createVueloaderOptions = require('./vue-loader.config');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 const MarkdownItContainer = require('markdown-it-container')
 const striptags = require('./script-tag')
+
+const isDev = process.env.NODE_ENV === 'development';
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
@@ -57,7 +60,8 @@ const config = {
     module: {
         rules: [{
             test: /\.vue$/,
-            loader: 'vue-loader'
+            loader: 'vue-loader',
+            options: createVueloaderOptions(isDev)
         }, {
             test: /\.jsx$/,
             loader: 'babel-loader'

@@ -15,7 +15,7 @@
         name: "app",
         methods: {
             toButton () {
-                this.$router.push('/test')
+                this.$router.push('/button')
             }
         }
     }

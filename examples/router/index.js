@@ -13,9 +13,14 @@ export default new VueRouter({
             component: Hello
         },
         {
-            path: '/test',
-            name: 'test',
-            component: r => require.ensure([], () => r(require('../docs/test.md')))
+            path: '/layout',
+            name: 'layout',
+            component: r => require.ensure([], () => r(require('../docs/layout.md')))
+        },
+        {
+            path: '/button',
+            name: 'button',
+            component: r => require.ensure([], () => r(require('../docs/button.md')))
         }
     ]
 })

@@ -55,7 +55,8 @@ if (isDev) {
                 {
                     test: /\.css$/,
                     use: [
-                        miniCssExtractPlugin.loader,
+                        'vue-style-loader',
+                        // miniCssExtractPlugin.loader,
                         {
                             loader: 'css-loader',
                             options: {
@@ -66,7 +67,8 @@ if (isDev) {
                 }, {
                     test: /\.styl/,
                     use: [
-                        miniCssExtractPlugin.loader,
+                        'vue-style-loader',
+                        // miniCssExtractPlugin.loader,
                         'css-loader',
                         {
                             loader: 'postcss-loader',
@@ -79,7 +81,8 @@ if (isDev) {
                 }, {
                     test: /\.less$/,
                     use: [
-                        miniCssExtractPlugin.loader,
+                        'vue-style-loader',
+                        // miniCssExtractPlugin.loader,
                         'css-loader',
                         {
                             loader: 'postcss-loader',
@@ -106,6 +109,11 @@ if (isDev) {
         output: {
             filename: '[name].[chunkhash:8].js',
             publicPath: '/public/'
+        },
+        externals: {
+            vue: 'Vue',
+            'vue-router': 'VueRouter',
+            'highlight.js': 'hljs'
         },
         module: {
             rules: [
